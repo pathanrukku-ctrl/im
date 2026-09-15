@@ -1,4 +1,4 @@
-const termComparisonData = {
+window.termComparisonData = {
   fields: [
     'Minimum entry age',
     'Maximum entry-age variation',
@@ -25,47 +25,23 @@ const termComparisonData = {
       product: 'Smart Term Plan Plus',
       values: {
         'Minimum entry age': '18 years for listed variants.',
-        'Maximum entry-age variation': 'Varies by variant and payment option; listed limits include 44, 45, 50, 55, and 65 years.',
+        'Maximum entry-age variation': '65 years.',
         'Core plan variants or options': 'Regular Cover, Rebalancing Cover, Early ROP Plus, Smart Cover, Return of Premium, Whole Life Cover, and Income Protection Cover.',
         'Whole-life or longest-cover option': 'Whole Life Cover continues to age 100.',
         'Minimum sum assured': '₹5 lakh for most variants; ₹50 lakh for Rebalancing Cover; ₹2 lakh for Maternity Cover.',
         'Premium-payment choices': 'Single pay, regular pay, limited pay, and Pay Till 60, subject to variant conditions.',
-        'Return of premium or maturity benefit': 'Return of Premium returns 100% of specified total premiums at maturity. Early ROP Plus and Whole Life Cover return specified premium amounts in stages.',
+        'Return of premium or maturity benefit': 'Return of Premium returns 100% of specified total premiums at maturity.',
         'Terminal illness or critical illness feature': 'Inbuilt terminal illness cover includes an accelerated payout of ₹1 crore.',
-        'Waiver of future premiums': 'Optional waiver-of-premium rider covers disability and critical illness. Terminal illness is also inbuilt.',
-        'Accidental death benefit': 'Rebalancing Cover changes the split between life cover and accidental-death-benefit cover over time; an accidental death and dismemberment rider is available.',
-        'Instant payout on claim intimation': 'Insta Payment is an accelerated benefit payable within one working day of claim registration, subject to mandatory documents and claim approval.',
+        'Waiver of future premiums': 'Optional waiver-of-premium rider covers disability and critical illness.',
+        'Accidental death benefit': 'An accidental death and dismemberment rider is available.',
+        'Instant payout on claim intimation': 'Insta Payment is payable within one working day, subject to conditions.',
         'Death-benefit payout choice': 'Lump sum or monthly income at claims stage.',
         'Premium deferment or payment break': 'Cover Continuance Benefit is listed.',
         'Premium holiday': 'Not stated as a premium-holiday feature in the brochure.',
         'Life-stage cover increase': 'Lifeline Plus allows eligible female lives to take a top-up following the death of a spouse.',
-        'Joint-life or spouse option': '-.',
-        'Female-specific features or pricing': '15% female-life premium discount; optional Maternity Cover; Lifeline Plus for eligible female lives.',
-        'Other distinct feature': 'Special Exit Value can return up to 200% of specified premiums for eligible variants and policy years.'
-      }
-    },
-    {
-      company: 'Bajaj Life',
-      product: 'eTouch II',
-      values: {
-        'Minimum entry age': '18 years.',
-        'Maximum entry-age variation': '65 years; 55 years for Pay Till 60.',
-        'Core plan variants or options': 'Life Shield, Life Shield Plus, and Life Shield ROP.',
-        'Whole-life or longest-cover option': 'Life Shield and Life Shield Plus can cover up to age 99.',
-        'Minimum sum assured': '₹50 lakh.',
-        'Premium-payment choices': 'Limited pay, regular pay where premium term equals policy term, and Pay Till 60.',
-        'Return of premium or maturity benefit': 'Life Shield ROP returns total premiums paid as maturity benefit.',
-        'Terminal illness or critical illness feature': 'Terminal illness benefit is an acceleration of death benefit; terminal-illness sum assured ranges from ₹50 lakh to ₹2 crore.',
-        'Waiver of future premiums': 'Waiver of premium applies on accidental total permanent disability or terminal illness, as specified.',
-        'Accidental death benefit': 'Life Shield Plus includes accidental death benefit of ₹5 lakh to ₹2 crore.',
-        'Instant payout on claim intimation': '-.',
-        'Death-benefit payout choice': 'Lump sum, monthly income for 5, 10, 20, 30, or 40 years, or a combination.',
-        'Premium deferment or payment break': 'Auto Cover Continuance Benefit defers premiums up to 12 months.',
-        'Premium holiday': 'Eligible policyholders may skip premiums for one, two, or three years.',
-        'Life-stage cover increase': 'Life Stage Upgrade is available for marriage, childbirth or adoption, home loan, and child education loan.',
-        'Joint-life or spouse option': '-.',
-        'Female-specific features or pricing': 'Female premium rate uses a three-year set-back.',
-        'Other distinct feature': 'Early Exit Value can return paid premiums for eligible Life Shield and Life Shield Plus policies.'
+        'Joint-life or spouse option': 'Not stated in the brochure.',
+        'Female-specific features or pricing': '15% female-life premium discount; optional Maternity Cover.',
+        'Other distinct feature': 'Special Exit Value can return up to 200% of specified premiums for eligible variants.'
       }
     },
     {
@@ -117,38 +93,14 @@ const termComparisonData = {
       }
     },
     {
-      company: 'ACKO Life',
-      product: 'Flexi Term Plan',
-      values: {
-        'Minimum entry age': '-.',
-        'Maximum entry-age variation': '-.',
-        'Core plan variants or options': 'One flexible term plan; cover and term can be adjusted.',
-        'Whole-life or longest-cover option': 'Policy term can be extended or shortened; maximum term is not stated.',
-        'Minimum sum assured': '-.',
-        'Premium-payment choices': '-.',
-        'Return of premium or maturity benefit': '-.',
-        'Terminal illness or critical illness feature': 'Critical illness cover is available as an additional cover.',
-        'Waiver of future premiums': 'With applicable additional covers, remaining premiums are not payable after critical illness or severe disability.',
-        'Accidental death benefit': 'Accidental death cover is an additional cover.',
-        'Instant payout on claim intimation': '-.',
-        'Death-benefit payout choice': 'Nominee payout structure can be modified.',
-        'Premium deferment or payment break': '-.',
-        'Premium holiday': '-.',
-        'Life-stage cover increase': 'Cover may be increased once a year and reduced after five years.',
-        'Joint-life or spouse option': '-.',
-        'Female-specific features or pricing': '-.',
-        'Other distinct feature': 'Free digital will; nominees can be added or changed.'
-      }
-    },
-    {
       company: 'Tata AIA',
       product: 'Maha Raksha Supreme Select',
       values: {
         'Minimum entry age': '18 years.',
-        'Maximum entry-age variation': 'Varies by option and channel; listed maximums include 55, 60, and 65 years.',
+        'Maximum entry-age variation': '65 years.',
         'Core plan variants or options': 'Life Secure, Life Secure Plus, Joint Life Secure, and Joint Life Secure Plus.',
         'Whole-life or longest-cover option': 'Whole-of-life cover is available; non-POS maturity age can extend to 100 years.',
-        'Minimum sum assured': '₹25 lakh.',
+        'Minimum sum assured': 'Typically above ₹2 crore; minimum available is 25 Lakh.',
         'Premium-payment choices': 'Single pay, regular pay, and limited pay.',
         'Return of premium or maturity benefit': 'Life Secure Plus and Joint Life Secure Plus return 100% of specified total premiums at maturity.',
         'Terminal illness or critical illness feature': 'Payor Accelerator Benefit pays 50% of base sum assured on acceptance of terminal illness.',
@@ -169,7 +121,7 @@ const termComparisonData = {
       product: 'Sampoorna Raksha Promise',
       values: {
         'Minimum entry age': '18 years.',
-        'Maximum entry-age variation': 'Varies by option and channel; listed maximums include 55, 60, and 65 years.',
+        'Maximum entry-age variation': '65 years.',
         'Core plan variants or options': 'Life Promise, Life Promise Plus, Joint Life Promise, and Joint Life Promise Plus.',
         'Whole-life or longest-cover option': 'Whole-of-life cover is available; non-POS maturity age can extend to 100 years.',
         'Minimum sum assured': '₹25 lakh.',
