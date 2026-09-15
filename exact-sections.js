@@ -68,7 +68,7 @@ textNodes.forEach(node => { node.nodeValue = node.nodeValue.replace(removedInsur
 document.querySelectorAll('.reasons p').forEach(node => { if (node.textContent.includes('HDFC') || node.textContent.trim().startsWith(',')) node.textContent = 'We compare leading insurance providers to help you choose with confidence.'; });
 const adviceLink = document.querySelector('.nav-cta');
 if (adviceLink) {
-  adviceLink.href = 'https://wa.me/917893148175?text=Hi%20Team%2C%20looking%20for%20insurance%20advice%20';
+  adviceLink.href = 'https://wa.me/918125252378?text=Hi%20Team%2C%20looking%20for%20insurance%20advice%20';
   adviceLink.target = '_blank';
   adviceLink.rel = 'noopener';
 }
