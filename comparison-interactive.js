@@ -42,7 +42,19 @@
   const root = document.querySelector('.compare-body');
   if (!root) return;
 
-  root.innerHTML = `<div class="compare-toolbar"><div class="compare-toolbar-copy"><span class="eyebrow">SOURCE FIELD SET</span><h2>Build your own shortlist</h2><p>Select two insurers, choose a product, and scan every feature in one view.</p></div><div class="compare-actions"><label class="search-box"><span>Search insurers</span><input id="insurer-search" type="search" placeholder="Search by insurer"></label><label class="sort-box"><span>Sort by</span><select id="insurer-sort"><option value="default">Source order</option><option value="network">Hospital network</option><option value="name">Name</option></select></label><label class="switch"><input id="difference-toggle" type="checkbox"><span>Highlight differences</span></label></div></div><div class="insurer-picker" id="insurer-picker"></div><div class="comparison-summary" id="comparison-summary"></div><div class="table-wrap interactive-table"><table><thead id="comparison-head"></thead><tbody id="comparison-body"></tbody></table></div><p class="disclaimer">Source snapshot: Hercules Insurance comparison page, accessed September 2026. Values are indicative and may vary by product, policy version, geography, underwriting, and terms. Verify details with the insurer brochure before purchase.</p>`;
+  root.innerHTML = `<div class="comparison-mode-tabs" role="tablist" aria-label="Insurance type"><button class="comparison-mode-tab active" type="button" role="tab" aria-selected="true" data-mode="health">Health Insurance</button><button class="comparison-mode-tab" type="button" role="tab" aria-selected="false" data-mode="term">Term Insurance</button></div><div class="compare-toolbar"><div class="compare-toolbar-copy"><span class="eyebrow">SOURCE FIELD SET</span><h2>Build your own shortlist</h2><p>Select two insurers, choose a product, and scan every feature in one view.</p></div><div class="compare-actions"><label class="search-box"><span>Search insurers</span><input id="insurer-search" type="search" placeholder="Search by insurer"></label><label class="sort-box"><span>Sort by</span><select id="insurer-sort"><option value="default">Source order</option><option value="network">Hospital network</option><option value="name">Name</option></select></label><label class="switch"><input id="difference-toggle" type="checkbox"><span>Highlight differences</span></label></div></div><div class="insurer-picker" id="insurer-picker"></div><div class="comparison-summary" id="comparison-summary"></div><div class="table-wrap interactive-table"><table><thead id="comparison-head"></thead><tbody id="comparison-body"></tbody></table></div><p class="disclaimer">Source snapshot: Hercules Insurance comparison page, accessed September 2026. Values are indicative and may vary by product, policy version, geography, underwriting, and terms. Verify details with the insurer brochure before purchase.</p>`;
+
+  const modeTabs = root.querySelector('.comparison-mode-tabs');
+  const healthView = document.createElement('div');
+  healthView.id = 'health-comparison-view';
+  while (modeTabs.nextSibling) healthView.appendChild(modeTabs.nextSibling);
+  root.appendChild(healthView);
+  const termView = document.createElement('div');
+  termView.id = 'term-comparison-view';
+  termView.hidden = true;
+  const orderedTermPlans = [...termComparisonData.plans].sort((a, b) => Number(b.company === 'Tata AIA') - Number(a.company === 'Tata AIA'));
+  termView.innerHTML = `<div class="compare-toolbar-copy term-comparison-heading"><span class="eyebrow">BROCHURE FEATURE SET</span><h2>Compare term insurance plans</h2><p>All values are based only on the supplied plan brochures. Feature availability is subject to the selected variant, eligibility, underwriting, policy status, and policy terms.</p></div><div class="comparison-summary"><span><b>${orderedTermPlans.length}</b> plans compared</span><span>${termComparisonData.fields.length} brochure features</span><span>Source: supplied plan brochures</span></div><div class="table-wrap interactive-table term-table"><table><thead><tr><th>Feature</th>${orderedTermPlans.map(plan => `<th><strong>${escapeHtml(plan.company)}</strong><span class="term-product">${escapeHtml(plan.product)}</span></th>`).join('')}</tr></thead><tbody>${termComparisonData.fields.map(field => `<tr><th>${escapeHtml(field)}</th>${orderedTermPlans.map(plan => `<td>${escapeHtml(plan.values[field])}</td>`).join('')}</tr>`).join('')}</tbody></table></div><p class="disclaimer">Source note: All values are based only on the supplied plan brochures. Verify current policy wording, eligibility, underwriting, and variant terms before purchase.</p>`;
+  root.appendChild(termView);
 
   const picker = root.querySelector('#insurer-picker');
   const selected = insurerProfiles.slice(0, 2).map(profile => ({profile, product: profile.products[0]}));
@@ -87,6 +99,16 @@
 
   root.querySelector('#insurer-search').addEventListener('input', renderPicker);
   root.querySelector('#insurer-sort').addEventListener('change', renderPicker);
+  modeTabs.querySelectorAll('.comparison-mode-tab').forEach(button => button.addEventListener('click', () => {
+    const mode = button.dataset.mode;
+    modeTabs.querySelectorAll('.comparison-mode-tab').forEach(tab => {
+      const active = tab === button;
+      tab.classList.toggle('active', active);
+      tab.setAttribute('aria-selected', String(active));
+    });
+    healthView.hidden = mode !== 'health';
+    termView.hidden = mode !== 'term';
+  }));
   renderPicker();
   renderComparison();
 })();
