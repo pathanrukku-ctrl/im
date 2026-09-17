@@ -73,7 +73,7 @@ if (adviceLink) {
   adviceLink.rel = 'noopener';
 }
 if (currentPath.endsWith('index.html') || currentPath.endsWith('/')) {
-  document.querySelector('.hero')?.insertAdjacentHTML('beforeend', '<a class="hero-contact" href="contact.html"><span class="hero-contact-avatar">IM</span><span><strong>Real people. Honest advice.</strong><small>Contact an Advisor</small></span></a><div class="hero-offers"><div class="hero-offer"><strong>Term Insurance</strong><span>From ₹500/mo</span></div><div class="hero-offer"><strong>Health Insurance</strong><span>Family Floater</span></div><div class="hero-offer"><strong>Travel Insurance</strong><span>Worldwide Cover</span></div></div>');
+  document.querySelector('.hero')?.insertAdjacentHTML('beforeend', '<a class="hero-contact hero-speech" href="contact.html"><span class="hero-contact-avatar">IM</span><span class="hero-chat-copy"><strong>Real people. Honest advice.</strong><small>Personal guidance for your insurance needs.</small><em>Contact an Advisor</em></span></a><div class="hero-offers"><div class="hero-offer"><strong>Term Insurance</strong><span>From ₹500/mo</span></div><div class="hero-offer"><strong>Health Insurance</strong><span>Family Floater</span></div><div class="hero-offer"><strong>Travel Insurance</strong><span>Worldwide Cover</span></div></div>');
   const homeStats = document.querySelectorAll('.stats b');
   if (homeStats[0]) homeStats[0].innerHTML = '1100+<small>Families Protected</small>';
   if (homeStats[2]) homeStats[2].innerHTML = 'Since 2019';
