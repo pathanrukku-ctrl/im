@@ -80,7 +80,7 @@ if (currentPath.endsWith('index.html') || currentPath.endsWith('/')) {
   document.querySelector('.trust small')?.replaceChildren(document.createTextNode('Trusted by 1100+ families'));
   const founderSection = document.querySelector('.story');
   founderSection?.querySelector('.eyebrow')?.replaceChildren(document.createTextNode('OUR FOUNDER’S MISSION'));
-  founderSection?.querySelector('blockquote')?.replaceChildren(document.createTextNode('Our mission is to help protect 1 Lakh+ families with the right health and term insurance. We provide clear, honest guidance so you understand every plan and benefit. We help you choose coverage that protects the people you love.'));
+  founderSection?.querySelector('blockquote')?.replaceChildren(document.createTextNode('Our mission is to help families make confident health and term insurance decisions. We offer clear, honest guidance so you can understand your options and choose coverage that protects the people you love.'));
   founderSection?.querySelector('b')?.replaceChildren(document.createTextNode('Ravi'));
   founderSection?.querySelector('small')?.replaceChildren(document.createTextNode('Founder and Health Insurance Specialist'));
 }
